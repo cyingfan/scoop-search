@@ -1,0 +1,20 @@
+<html>
+  <body>
+    <label>Query</label>
+    <input id="query" />
+    <pre id="result"></pre>
+    <script>
+      let query = document.getElementById('query');
+      let result = document.getElementById('result');
+      query.addEventListener('keyup', function () {
+        console.log(query.value);
+        fetch('http://localhost:3000/scoop?query=' + query.value)
+          .then((response) => response.json())
+          .then((body) => {
+            console.log(body);
+            result.innerHTML = JSON.stringify(body, null, 2);
+          });
+      });
+    </script>
+  </body>
+</html>
