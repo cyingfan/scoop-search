@@ -1,6 +1,6 @@
 {
   "name": "scoopsearch",
-  "version": "0.1",
+  "version": "0.1.1",
   "description": "FTS powered API to search scoop packages.",
   "main": "index.js",
   "author": "Ying Fan Chong",

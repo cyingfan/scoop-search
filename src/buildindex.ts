@@ -5,6 +5,7 @@ import { JsonDoc, ResultDocs } from './types';
 let documents: ResultDocs = new Map();
 const index = lunr(function () {
   this.ref('id');
+  this.field('name');
   this.field('description');
   this.field('bucket');
 
