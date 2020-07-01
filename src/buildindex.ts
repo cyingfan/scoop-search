@@ -10,11 +10,18 @@ const index = lunr(function () {
 
   const basedir = 'data/raw/';
   fs.readdirSync(basedir).forEach((f) => {
+    if (!f.endsWith('.json')) {
+      return;
+    }
     const filepath = `${basedir}${f}`;
-    const jsonDoc: JsonDoc = JSON.parse(fs.readFileSync(filepath).toString());
-    const { id, name, bucket, description, version, homepage } = jsonDoc;
-    documents[id] = { name, bucket, description, version, homepage };
-    this.add(jsonDoc);
+    try {
+      const jsonDoc: JsonDoc = JSON.parse(fs.readFileSync(filepath).toString());
+      const { id, name, bucket, description, version, homepage } = jsonDoc;
+      documents[id] = { name, bucket, description, version, homepage };
+      this.add(jsonDoc);
+    } catch (e) {
+      console.log(e, filepath);
+    }
   });
 });
 
