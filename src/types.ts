@@ -8,4 +8,4 @@ export type ResultDoc = {
 
 export type JsonDoc = { id: string } & ResultDoc;
 
-export type ResultDocs = Map<string, ResultDoc>;
+export type ResultDocs = { [key: string]: ResultDoc };

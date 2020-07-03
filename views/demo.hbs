@@ -3,19 +3,22 @@
 <body>
   <label>Query</label>
   <input id="query" />
+  <label>Disable fuzzy search</label><input type="checkbox" id="disableFuzzy">
   <pre id="result"></pre>
   <script>
-    let query = document.getElementById('query');
-    let result = document.getElementById('result');
-    query.addEventListener('keyup', function () {
-      console.log(query.value);
-      fetch('/scoop?query=' + query.value)
-        .then((response) => response.json())
-        .then((body) => {
-          console.log(body);
+    const query = document.getElementById('query');
+    const result = document.getElementById('result');
+    const disableFuzzy = document.getElementById('disableFuzzy');
+    const onUpdate = () => {
+      disableFuzzyQuery = disableFuzzy.checked ? 'disableFuzzy=true&' : '';
+      fetch(`/scoop?${disableFuzzyQuery}query=` + query.value)
+        .then(response => response.json())
+        .then(body => {
           result.innerHTML = JSON.stringify(body, null, 2);
         });
-    });
+    }
+    query.addEventListener('keyup', onUpdate);
+    disableFuzzy.addEventListener('change', onUpdate);
   </script>
 </body>
 

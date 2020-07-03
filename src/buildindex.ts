@@ -2,7 +2,7 @@ import * as fs from 'fs';
 import * as lunr from 'lunr';
 import { JsonDoc, ResultDocs } from './types';
 
-let documents: ResultDocs = new Map();
+let documents: ResultDocs = {};
 const index = lunr(function () {
   this.ref('id');
   this.field('name');
