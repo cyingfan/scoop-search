@@ -22,7 +22,7 @@ export class ApiController {
 
   @Get()
   find(@Req() request: Request): ResultDoc[] {
-    const filteredQuery = (request.query.query.toString() || '').replace(/\W/g, '').trim();
+    const filteredQuery = (request.query.query.toString() || '').replace(/[^\s\w]/g, '').trim();
     // const filteredQuery = (request.query.query.toString() || '').trim();
     if ('disableFuzzy' in request.query) {
       return this.indexService.search(filteredQuery);
