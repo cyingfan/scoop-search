@@ -20,7 +20,7 @@ const formatNameQuery = (query: string) => tokenize(query).map(formatNameTerm).j
 export class ApiController {
   constructor(private readonly indexService: IndexService) {}
 
-  @Get()
+  @Get('package')
   find(@Req() request: Request): ResultDoc[] {
     const filteredQuery = (request.query.query.toString() || '').replace(/[^\s\w]/g, '').trim();
     if (filteredQuery.length === 0) {

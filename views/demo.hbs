@@ -11,7 +11,7 @@
     const disableFuzzy = document.getElementById('disableFuzzy');
     const onUpdate = () => {
       disableFuzzyQuery = disableFuzzy.checked ? 'disableFuzzy=true&' : '';
-      fetch(`/scoop?${disableFuzzyQuery}query=` + query.value)
+      fetch(`/scoop/package?${disableFuzzyQuery}query=` + query.value)
         .then(response => response.json())
         .then(body => {
           result.innerHTML = JSON.stringify(body, null, 2);
