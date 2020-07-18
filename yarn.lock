@@ -546,20 +546,20 @@
     webpack-node-externals "1.7.2"
 
 "@nestjs/common@^7.1.1":
-  version "7.2.0"
-  resolved "https://registry.yarnpkg.com/@nestjs/common/-/common-7.2.0.tgz#f191c79dca5939188544975e624c1ab0fcb2f4db"
-  integrity sha512-R9oU/uni80/a/oDV3/T7ZtoJ9GMcLj5bOQrmaanAKAe50+xIueAR4R7hwYun3wSL/uvbAT1N9g4EXI3zkboCHw==
+  version "7.3.2"
+  resolved "https://registry.yarnpkg.com/@nestjs/common/-/common-7.3.2.tgz#ce9e63085cf74948f00a167c4b55243c288b5eaa"
+  integrity sha512-qK8szqv0PuHDVDPbQjVV+Z91QasDIe7cbzULqtNDARIRkgU4LGk/Q+32E3kBWfp8gh5axRkgVuKtpCiq2s55Cg==
   dependencies:
     axios "0.19.2"
     cli-color "2.0.0"
     iterare "1.2.1"
     tslib "2.0.0"
-    uuid "8.1.0"
+    uuid "8.2.0"
 
 "@nestjs/core@^7.1.1":
-  version "7.2.0"
-  resolved "https://registry.yarnpkg.com/@nestjs/core/-/core-7.2.0.tgz#759b0a5e4faacb2770215ed4537a0df8d088f093"
-  integrity sha512-E0sDv2rmL0M3rOsBUq26ktQxtVBpJ7vdPFDOsC3iZkCEb+6iN2XGW77olpJtfeROqZ6cR9vSO2m2RPJzFkeMyQ==
+  version "7.3.2"
+  resolved "https://registry.yarnpkg.com/@nestjs/core/-/core-7.3.2.tgz#64b4eebcfcf7beb909504b1a74fc89fc6ecc7e26"
+  integrity sha512-oL1iDfkJyM/0L+LKS+/Yo7GUJkiEcYsZY/ndONdiv1XqiBC5t76DDXry9CuJmcRH36FJ+QbI5jwpKXjRa9D5dQ==
   dependencies:
     "@nuxtjs/opencollective" "0.2.2"
     fast-safe-stringify "2.0.7"
@@ -567,7 +567,7 @@
     object-hash "2.0.3"
     path-to-regexp "3.2.0"
     tslib "2.0.0"
-    uuid "8.1.0"
+    uuid "8.2.0"
 
 "@nestjs/platform-express@^7.1.1":
   version "7.2.0"
@@ -640,13 +640,6 @@
   version "1.3.1"
   resolved "https://registry.yarnpkg.com/@types/anymatch/-/anymatch-1.3.1.tgz#336badc1beecb9dacc38bea2cf32adf627a8421a"
   integrity sha512-/+CRPXpBDpo2RK9C68N3b2cOvO0Cf5B9aPijHsoDQTHivnGSObdOF2BRQOYjojWTDy6nQvMjmqRXIxH55VjxxA==
-
-"@types/axios@^0.14.0":
-  version "0.14.0"
-  resolved "https://registry.yarnpkg.com/@types/axios/-/axios-0.14.0.tgz#ec2300fbe7d7dddd7eb9d3abf87999964cafce46"
-  integrity sha1-7CMA++fX3d1+udOr+HmZlkyvzkY=
-  dependencies:
-    axios "*"
 
 "@types/babel__core@^7.0.0", "@types/babel__core@^7.1.7":
   version "7.1.9"
@@ -1367,7 +1360,7 @@ aws4@^1.8.0:
   resolved "https://registry.yarnpkg.com/aws4/-/aws4-1.10.0.tgz#a17b3a8ea811060e74d47d306122400ad4497ae2"
   integrity sha512-3YDiu347mtVtjpyV3u5kVqQLP242c06zwDOgpeRnybmXlYYsLbtTrUBUm8i8srONt+FWobl5aibnU1030PeeuA==
 
-axios@*, axios@0.19.2, axios@^0.19.2:
+axios@0.19.2:
   version "0.19.2"
   resolved "https://registry.yarnpkg.com/axios/-/axios-0.19.2.tgz#3ea36c5d8818d0d5f8a8a97a6d36b86cdc00cb27"
   integrity sha512-fjgm5MvRHLhx+osE2xoekY70AhARk3a6hkN+3Io1jc00jtquGvxYlKlsFUhmUET0V5te6CcZI7lcv2Ym61mjHA==
@@ -6766,10 +6759,15 @@ typedarray@^0.0.6:
   resolved "https://registry.yarnpkg.com/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
   integrity sha1-hnrHTjhkGHsdPUfZlqeOxciDB3c=
 
-typescript@^3.6.4, typescript@^3.9.5:
+typescript@^3.6.4:
   version "3.9.5"
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-3.9.5.tgz#586f0dba300cde8be52dd1ac4f7e1009c1b13f36"
   integrity sha512-hSAifV3k+i6lEoCJ2k6R2Z/rp/H3+8sdmcn5NrS3/3kE7+RyZXm9aqvxWqjEXHAd8b0pShatpcdMTvEdvAJltQ==
+
+typescript@^3.9.5:
+  version "3.9.7"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-3.9.7.tgz#98d600a5ebdc38f40cb277522f12dc800e9e25fa"
+  integrity sha512-BLbiRkiBzAwsjut4x/dsibSTB6yWpwT5qWmC2OfuCg3GgVQCSgMs4vEctYPhsaGtd0AeuuHMkjZ2h2WG8MSzRw==
 
 uglify-js@^3.1.4:
   version "3.10.0"
@@ -6877,10 +6875,10 @@ uuid@8.0.0:
   resolved "https://registry.yarnpkg.com/uuid/-/uuid-8.0.0.tgz#bc6ccf91b5ff0ac07bbcdbf1c7c4e150db4dbb6c"
   integrity sha512-jOXGuXZAWdsTH7eZLtyXMqUb9EcWMGZNbL9YcGBJl4MH4nrxHmZJhEHvyLFrkxo+28uLb/NYRcStH48fnD0Vzw==
 
-uuid@8.1.0:
-  version "8.1.0"
-  resolved "https://registry.yarnpkg.com/uuid/-/uuid-8.1.0.tgz#6f1536eb43249f473abc6bd58ff983da1ca30d8d"
-  integrity sha512-CI18flHDznR0lq54xBycOVmphdCYnQLKn8abKn7PXUiKUGdEd+/l9LWNJmugXel4hXq7S+RMNl34ecyC9TntWg==
+uuid@8.2.0:
+  version "8.2.0"
+  resolved "https://registry.yarnpkg.com/uuid/-/uuid-8.2.0.tgz#cb10dd6b118e2dada7d0cd9730ba7417c93d920e"
+  integrity sha512-CYpGiFTUrmI6OBMkAdjSDM0k5h8SkkiTP4WAjQgDgNB1S3Ou9VBEvr6q0Kv2H1mMk7IWfxYGpMH5sd5AvcIV2Q==
 
 uuid@^3.3.2:
   version "3.4.0"
