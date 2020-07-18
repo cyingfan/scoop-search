@@ -1,6 +1,6 @@
 import { Controller, Get, Req, Render } from '@nestjs/common';
 import { Request } from 'express';
-import { IndexService } from './index.service';
+import { IndexService } from './services/index.service';
 import { ResultDoc } from './types';
 
 const tokenize = (query: string) => query.replace('/s{2,}/g', ' ').split(' ');

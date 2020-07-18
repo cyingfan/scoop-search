@@ -9,3 +9,8 @@ export type ResultDoc = {
 export type JsonDoc = { id: string } & ResultDoc;
 
 export type ResultDocs = { [key: string]: ResultDoc };
+
+export type TreeNode = {
+  path: string;
+  type: string;
+};
