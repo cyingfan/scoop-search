@@ -1,6 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import * as lunr from 'lunr';
 import * as fs from 'fs';
+import * as path from 'path';
 import { JsonDoc, ResultDocs, ResultDoc, TreeNode } from '../types';
 import { default as axios, AxiosResponse } from 'axios';
 import { curry } from 'ramda';
@@ -20,6 +21,16 @@ export class IndexService {
     return result.map((result) => this.documents[result.ref]);
   }
 
+  clearRawFiles() {
+    const basedir = './data/raw';
+    fs.readdirSync(basedir).forEach(async (f) => {
+      if (!f.endsWith('.json')) {
+        return;
+      }
+      fs.unlinkSync(path.join(basedir, f));
+    });
+  }
+
   async loadRaw() {
     const getApiUrl = (user: string, repo: string) =>
       `https://api.github.com/repos/${user}/${repo}/git/trees/HEAD?recursive=1`;
@@ -32,7 +43,7 @@ export class IndexService {
     );
     const eachPackage = async (user: string, repo: string, bucketName: string, node: TreeNode) => {
       const match = node.path.match(/bucket\/([^\.]+)\.json$/);
-      if (node.type !== 'blob' || match?.length === 0) {
+      if (node.type !== 'blob' || match === null) {
         return;
       }
       const response = await axios.get(getJsonUrl(user, repo, node.path));
@@ -89,6 +100,7 @@ export class IndexService {
   }
 
   async refreshIndex() {
+    this.clearRawFiles();
     await this.loadRaw();
     this.buildIndex();
   }

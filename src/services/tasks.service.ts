@@ -8,7 +8,7 @@ export class TasksService {
 
   constructor(private readonly indexService: IndexService) {}
 
-  @Cron('0 0 * * * *')
+  @Cron('0 0 */6 * * *')
   handleCron() {
     this.indexService.refreshIndex();
     this.logger.debug('Refreshing index');
