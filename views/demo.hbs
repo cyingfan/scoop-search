@@ -6,19 +6,27 @@
   <label>Disable fuzzy search</label><input type="checkbox" id="disableFuzzy">
   <pre id="result"></pre>
   <script>
-    const query = document.getElementById('query');
-    const result = document.getElementById('result');
-    const disableFuzzy = document.getElementById('disableFuzzy');
-    const onUpdate = () => {
-      disableFuzzyQuery = disableFuzzy.checked ? 'disableFuzzy=true&' : '';
-      fetch(`/scoop/package?${disableFuzzyQuery}query=` + query.value)
-        .then(response => response.json())
-        .then(body => {
-          result.innerHTML = JSON.stringify(body, null, 2);
-        });
-    }
-    query.addEventListener('keyup', onUpdate);
-    disableFuzzy.addEventListener('change', onUpdate);
+    (function () {
+      let searchState = '';
+
+      const query = document.getElementById('query');
+      const result = document.getElementById('result');
+      const disableFuzzy = document.getElementById('disableFuzzy');
+      const onUpdate = () => {
+        if (query.value === searchState) {
+          return;
+        }
+        disableFuzzyQuery = disableFuzzy.checked ? 'disableFuzzy=true&' : '';
+        fetch(`/scoop/package?${disableFuzzyQuery}query=${query.value}`)
+          .then(response => response.json())
+          .then(body => {
+            result.innerHTML = JSON.stringify(body, null, 2);
+            searchState = query.value;
+          });
+      };
+      query.addEventListener('keyup', onUpdate);
+      disableFuzzy.addEventListener('change', onUpdate);
+    })();
   </script>
 </body>
 
