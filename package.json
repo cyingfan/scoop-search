@@ -1,6 +1,6 @@
 {
   "name": "scoopsearch",
-  "version": "0.3.2",
+  "version": "0.3.3",
   "description": "FTS powered API to search scoop packages.",
   "main": "index.js",
   "author": "Ying Fan Chong",
@@ -13,6 +13,7 @@
     "@types/lunr": "^2.3.3",
     "@types/node": "^14.0.14",
     "@types/ramda": "^0.27.7",
+    "compression": "^1.7.4",
     "hbs": "^4.1.1",
     "lunr": "^2.3.8",
     "ramda": "^0.27.0",

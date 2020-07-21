@@ -7,25 +7,29 @@
   <pre id="result"></pre>
   <script>
     (function () {
-      let searchState = '';
+      let searchState = {
+        query: '',
+        disableFuzzy: false
+      };
 
-      const query = document.getElementById('query');
-      const result = document.getElementById('result');
-      const disableFuzzy = document.getElementById('disableFuzzy');
+      const queryElement = document.getElementById('query');
+      const resultElement = document.getElementById('result');
+      const disableFuzzyElement = document.getElementById('disableFuzzy');
       const onUpdate = () => {
-        if (query.value === searchState) {
+        if (queryElement.value === searchState.query && disableFuzzyElement.checked === searchState.disableFuzzy) {
           return;
         }
-        disableFuzzyQuery = disableFuzzy.checked ? 'disableFuzzy=true&' : '';
-        fetch(`/scoop/package?${disableFuzzyQuery}query=${query.value}`)
+        disableFuzzyQuery = disableFuzzyElement.checked ? 'disableFuzzy=true&' : '';
+        fetch(`/scoop/package?${disableFuzzyQuery}query=${queryElement.value}`)
           .then(response => response.json())
           .then(body => {
-            result.innerHTML = JSON.stringify(body, null, 2);
-            searchState = query.value;
+            resultElement.innerHTML = JSON.stringify(body, null, 2);
+            searchState.query = queryElement.value;
+            searchState.disableFuzzy = disableFuzzyElement.checked;
           });
       };
-      query.addEventListener('keyup', onUpdate);
-      disableFuzzy.addEventListener('change', onUpdate);
+      queryElement.addEventListener('keyup', onUpdate);
+      disableFuzzyElement.addEventListener('change', onUpdate);
     })();
   </script>
 </body>
