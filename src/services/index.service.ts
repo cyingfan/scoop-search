@@ -47,7 +47,10 @@ export class IndexService {
         return;
       }
       const response = await axios.get(getJsonUrl(user, repo, node.path));
-      const json = response.data;
+      let json = response.data;
+      if (typeof json === "string") {
+        json = JSON.parse(json);
+      }
       json['bucket'] = bucketName;
       json['name'] = match[1];
       json['id'] = `${repo} - ${match[1]}`;
